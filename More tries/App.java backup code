@@ -1,4 +1,9 @@
-import java.io.*;
+import java.io.Console;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class App{
 
     public static void main(String[] args) throws IOException{
@@ -34,11 +39,7 @@ public class App{
         //use filewriter to write content to the file
         Console console = System.console();
         String keyboardInput = console.readLine("Put your sentence here");
-        
-
-
-
-       /*  FileWriter fw = new FileWriter(file,true);
+        FileWriter fw = new FileWriter(file,true);
         fw.write(keyboardInput);
         fw.flush();
         fw.close();
@@ -50,40 +51,10 @@ public class App{
             System.out.println((char) dataRead);
             dataRead = fr.read();
         }
-        fr.close(); */
+        fr.close();
 //successfully made a text file and took the info from it and wrote info to it
 
 
-//example with bufferwriter to write file
-FileWriter fw = new FileWriter(file,true);
-BufferedWriter bw = new BufferedWriter(fw);
-bw.append(keyboardInput);
-bw.flush();
-bw.close();
-
-//se bufferedReader to read the file content
-FileReader fr = new FileReader(file);
-BufferedReader br = new BufferedReader(fr);
-String line = "";
-while((line=br.readLine())!= null){
-    System.out.println(line);
-}
-br.close();
-fr.close();
-
-//new example
-FileOutputStream fos = new FileOutputStream(file,true);
-byte[] byteContent = keyboardInput.getBytes();
-fos.write(byteContent);
-fos.flush();
-fos.close();
-
-FileInputStream fis = new FileInputStream(file);
-int contentRead = 0;
-while((contentRead = fis.read()) != -1){
-    System.out.print((char) contentRead);
-}
-fis.close();
 
         
 
